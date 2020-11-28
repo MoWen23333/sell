@@ -1,9 +1,9 @@
-package com.imooc.sell.service.impl;
+package com.imooc.service.impl;
 
-import com.imooc.sell.dataobject.ProductInfo;
-import com.imooc.sell.enums.ProductStatusEnum;
-import com.imooc.sell.repository.ProductInfoRepository;
-import com.imooc.sell.service.ProductService;
+import com.imooc.dataobject.ProductInfo;
+import com.imooc.enums.ProductStatusEnum;
+import com.imooc.repository.ProductInfoRepository;
+import com.imooc.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,6 +13,7 @@ import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
+
     @Autowired
     private ProductInfoRepository repository;
 

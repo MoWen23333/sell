@@ -1,7 +1,6 @@
-package com.imooc.sell.service.impl;
+package com.imooc.service.impl;
 
-import com.imooc.sell.dataobject.ProductCategory;
-import junit.framework.TestCase;
+import com.imooc.dataobject.ProductCategory;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,31 +14,33 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CategoryServiceImplTest {
+
     @Autowired
     private CategoryServiceImpl categoryService;
 
     @Test
-    public void testFindOne() throws Exception {
+    public void findOne() throws Exception {
         ProductCategory productCategory = categoryService.findOne(1);
         Assert.assertEquals(new Integer(1), productCategory.getCategoryId());
     }
 
     @Test
-    public void testFindAll() throws Exception {
+    public void findAll() throws Exception {
         List<ProductCategory> productCategoryList = categoryService.findAll();
         Assert.assertNotEquals(0, productCategoryList.size());
     }
 
     @Test
-    public void testFindByCategoryTypeIn() throws Exception {
+    public void findByCategoryTypeIn() throws Exception {
         List<ProductCategory> productCategoryList = categoryService.findByCategoryTypeIn(Arrays.asList(1,2,3,4));
         Assert.assertNotEquals(0, productCategoryList.size());
     }
 
     @Test
-    public void testSave() throws Exception {
-        ProductCategory productCategory = new ProductCategory("男生专享",10);
+    public void save() throws Exception {
+        ProductCategory productCategory = new ProductCategory("男生专享", 10);
         ProductCategory result = categoryService.save(productCategory);
-        Assert.assertNull(null);
+        Assert.assertNotNull(result);
     }
+
 }

@@ -1,6 +1,6 @@
-package com.imooc.sell.repository;
+package com.imooc.repository;
 
-import com.imooc.sell.dataobject.ProductInfo;
+import com.imooc.dataobject.ProductInfo;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,4 +40,5 @@ public class ProductInfoRepositoryTest {
         List<ProductInfo> productInfoList = repository.findByProductStatus(0);
         Assert.assertNotEquals(0, productInfoList.size());
     }
+
 }
