@@ -6,7 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 
-// 商品
+/**
+ * 商品
+ */
 @Entity
 @Data
 public class ProductInfo {

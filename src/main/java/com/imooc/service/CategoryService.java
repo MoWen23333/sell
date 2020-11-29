@@ -4,7 +4,9 @@ import com.imooc.dataobject.ProductCategory;
 
 import java.util.List;
 
-// 类目
+/**
+ * 类目
+ */
 public interface CategoryService {
 
     ProductCategory findOne(Integer categoryId);

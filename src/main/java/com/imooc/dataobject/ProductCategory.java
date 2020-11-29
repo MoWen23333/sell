@@ -7,8 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-// 类目
-
+/**
+ * 类目
+ */
 @Entity
 @DynamicUpdate
 @Data
