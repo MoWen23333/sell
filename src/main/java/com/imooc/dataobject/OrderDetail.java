@@ -7,9 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 
-/**
- * Created by 廖师兄
- */
 @Entity
 @Data
 public class OrderDetail {
