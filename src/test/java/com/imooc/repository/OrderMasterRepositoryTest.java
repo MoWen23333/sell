@@ -24,12 +24,12 @@ public class OrderMasterRepositoryTest {
     @Test
     public void saveTest() {
         OrderMaster orderMaster = new OrderMaster();
-        orderMaster.setOrderId("1234568");
+        orderMaster.setOrderId("1234569");
         orderMaster.setBuyerName("莫大蚊");
         orderMaster.setBuyerPhone("123456789123");
-        orderMaster.setBuyerAddress("信息楼");
+        orderMaster.setBuyerAddress("研究生公寓");
         orderMaster.setBuyerOpenid(OPENID);
-        orderMaster.setBuyerAmount(new BigDecimal(56));
+        orderMaster.setOrderAmount(new BigDecimal(34));
 
         OrderMaster result = repository.save(orderMaster);
         Assert.assertNotNull(result);
@@ -37,9 +37,10 @@ public class OrderMasterRepositoryTest {
 
     @Test
     public void findByBuyerOpenid() throws Exception {
-        PageRequest request = new PageRequest(1, 3);
+        PageRequest request = new PageRequest(0, 1);
 
         Page<OrderMaster> result = repository.findByBuyerOpenid(OPENID, request);
+        // System.out.println(result.getTotalElements());
         Assert.assertNotEquals(0, result.getTotalElements());
     }
 

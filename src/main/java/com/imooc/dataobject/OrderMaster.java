@@ -35,10 +35,10 @@ public class OrderMaster {
     private String buyerOpenid;
 
     /** 订单总金额. */
-    private BigDecimal buyerAmount;
+    private BigDecimal orderAmount;
 
     /** 订单状态, 默认为0新下单. */
-    private Integer buyerStatus = OrderStatusEnum.NEW.getCode();
+    private Integer orderStatus = OrderStatusEnum.NEW.getCode();
 
     /** 支付状态, 默认为0未支付. */
     private Integer payStatus = PayStatusEnum.WAIT.getCode();
