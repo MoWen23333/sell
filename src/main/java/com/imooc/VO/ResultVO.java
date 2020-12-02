@@ -1,13 +1,14 @@
 package com.imooc.VO;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 /**
  * http请求返回的最外层对象
- * Created by 廖师兄
- * 2017-05-12 14:13
  */
+
 @Data
+// @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResultVO<T> {
 
     /** 错误码. */
