@@ -2,7 +2,6 @@ package com.imooc.converter;
 
 import com.imooc.dataobject.OrderMaster;
 import com.imooc.dto.OrderDTO;
-import org.hibernate.criterion.Order;
 import org.springframework.beans.BeanUtils;
 
 import java.util.List;

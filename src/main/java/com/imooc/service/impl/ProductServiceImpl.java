@@ -47,13 +47,14 @@ public class ProductServiceImpl implements ProductService {
         for (CartDTO cartDTO: cartDTOList) {
             ProductInfo productInfo = repository.findOne(cartDTO.getProductId());
             if (productInfo == null) {
-                throw new SellException(ResultEnum.PRODUCT_NOT_EXIT);
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
             }
-
             Integer result = productInfo.getProductStock() + cartDTO.getProductQuantity();
             productInfo.setProductStock(result);
+
             repository.save(productInfo);
         }
+
     }
 
     @Override
@@ -62,7 +63,7 @@ public class ProductServiceImpl implements ProductService {
         for (CartDTO cartDTO: cartDTOList) {
             ProductInfo productInfo = repository.findOne(cartDTO.getProductId());
             if (productInfo == null) {
-                throw new SellException(ResultEnum.PRODUCT_NOT_EXIT);
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
             }
 
             Integer result = productInfo.getProductStock() - cartDTO.getProductQuantity();

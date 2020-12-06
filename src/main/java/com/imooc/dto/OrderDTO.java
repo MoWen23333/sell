@@ -1,14 +1,10 @@
 package com.imooc.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.imooc.dataobject.OrderDetail;
-import com.imooc.enums.OrderStatusEnum;
-import com.imooc.enums.PayStatusEnum;
 import com.imooc.utils.serializer.Date2LongSerializer;
 import lombok.Data;
 
-import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;

@@ -19,11 +19,12 @@ server:
 #    com.imooc.LoggerTest: debug
 
 wechat:
-  # 授权
+  # 公众账号，授权
   mpAppId: wxd898fcb01713c658
   mpAppSecret: 29d8a650db31472aa87800e3b0d739f2
-  # 支付
+  # 支付/商户号
   mchId: 1483469312
   mchKey: 098F6BCD4621D373CADE4E832627B4F6
+  # 发起支付不需要证书，退款需要
   KeyPath: /Users/mowen/Downloads/h5.p12
   notifyUrl: http://modawen.natapp1.cc/sell/pay/notify
