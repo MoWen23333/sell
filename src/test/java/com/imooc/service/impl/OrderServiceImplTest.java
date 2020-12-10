@@ -35,7 +35,7 @@ public class OrderServiceImplTest {
     public void create() throws Exception{
 
         OrderDTO orderDTO = new OrderDTO();
-        orderDTO.setBuyerName("莫小蚊");
+        orderDTO.setBuyerName("莫大蚊");
         orderDTO.setBuyerAddress("信息楼235");
         orderDTO.setBuyerPhone("18811111111");
         orderDTO.setBuyerOpenid(BUYER_OPENID);
