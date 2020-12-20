@@ -7,6 +7,7 @@ import com.imooc.exception.SellException;
 import com.imooc.form.ProductForm;
 import com.imooc.service.CategoryService;
 import com.imooc.service.ProductService;
+import com.imooc.utils.KeyUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -104,9 +105,15 @@ public class SellerProductController {
             return new ModelAndView("common/error", map);
         }
 
+        ProductInfo productInfo = new ProductInfo();
         try {
-        ProductInfo productInfo = productService.findOne(form.getProductId());
-        BeanUtils.copyProperties(form, productInfo);
+            // 如果productId为空，说明为新增
+            if (!StringUtils.isEmpty(form.getProductId())) {
+                productInfo = productService.findOne(form.getProductId());
+            } else {
+                form.setProductId(KeyUtil.genUniqueKey());
+            }
+            BeanUtils.copyProperties(form, productInfo);
             productService.save(productInfo);
         } catch (SellException e) {
             map.put("msg", e.getMessage());

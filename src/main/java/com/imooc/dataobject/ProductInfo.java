@@ -1,6 +1,7 @@
 package com.imooc.dataobject;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.imooc.enums.PayStatusEnum;
 import com.imooc.enums.ProductStatusEnum;
 import com.imooc.utils.EnumUtil;
 import lombok.Data;
@@ -38,7 +39,7 @@ public class ProductInfo {
     private String productIcon;
 
     /** 状态, 0正常1下架. */
-    private Integer productStatus;
+    private Integer productStatus = ProductStatusEnum.UP.getCode();
 
     /** 类目编号. */
     private Integer categoryType;
