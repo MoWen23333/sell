@@ -42,10 +42,20 @@ create table `order_detail` (
 	`product_id` varchar(32) not null,
 	`product_name` varchar(64) not null comment '商品名称',
 	`product_price` decimal(8,2) not null comment '商品价格',
-	`product_quanity` int not null comment '商品数量',
+	`product_quantity` int not null comment '商品数量',
 	`product_icon` varchar(512) comment '商品图片',
 	`create_time` timestamp not null default current_timestamp comment '创建时间',
 	`update_time` timestamp not null default current_timestamp on update current_timestamp comment '修改时间',
 	primary key (`detail_id`),
 	key `idx_order_id` (`order_id`)
 ) comment '订单详情表';
+
+create table `seller_info` (
+    `seller_id` varchar(32) not null,
+    `username` varchar(32) not null,
+    `password` varchar(32) not null,
+    `openid` varchar(64) not null comment '微信openid',
+    `create_time` timestamp not null default current_timestamp comment '创建时间',
+	`update_time` timestamp not null default current_timestamp on update current_timestamp comment '修改时间',
+	primary key (`seller_id`)
+) comment '卖家信息表';
