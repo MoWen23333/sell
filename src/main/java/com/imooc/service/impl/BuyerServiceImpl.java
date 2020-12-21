@@ -17,7 +17,8 @@ public class BuyerServiceImpl implements BuyerService {
     private OrderService orderService;
 
     @Override
-    public OrderDTO findOrderOne(String openid, String orderId) {
+    public OrderDTO findOrderOne(String openid, String orderId)
+    {
         return checkOrderOwner(openid, orderId);
     }
 

@@ -49,7 +49,7 @@ public class SellerProductController {
         return new ModelAndView("product/list",map);
     }
 
-    /*上架*/
+    /* 上架 */
     @RequestMapping("/on_sale")
     public ModelAndView onSale(@RequestParam("productId") String productId,
                                Map<String, Object> map) {
@@ -64,7 +64,7 @@ public class SellerProductController {
         return new ModelAndView("common/success", map);
     }
 
-    /*下架*/
+    /* 下架 */
     @RequestMapping("off_sale")
     public ModelAndView offSale(@RequestParam("productId") String productId,
                                Map<String, Object> map) {
