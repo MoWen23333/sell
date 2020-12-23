@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 import java.util.UUID;
@@ -45,7 +46,7 @@ public class SellerUserController {
         if (sellerInfo == null) {
             map.put("msg", ResultEnum.LOGIN_FAIL.getMessage());
             map.put("url", "sell/seller/order/list");
-            return new ModelAndView("common/error");
+            return new ModelAndView("common/error", map);
         }
 
         // 设置token至redis
@@ -59,7 +60,20 @@ public class SellerUserController {
     }
 
     @GetMapping("/logout")
-    public void logout() {
+    public ModelAndView logout(HttpServletRequest request,
+                       HttpServletResponse response,
+                       Map<String, Object> map) {
+        // 从cookie里查询
+        Cookie cookie = CookieUtil.get(request, CookieConstant.TOKEN);
+        if (cookie != null) {
+            // 清除redis
+            redisTemplate.opsForValue().getOperations().delete(String.format(RedisConstant.TOKEN_PREFIX, cookie.getValue()));
+            // 清除cookie
+            CookieUtil.set(response, CookieConstant.TOKEN, null, 0);
+        }
+        map.put("msg", ResultEnum.LOGOUT_SUCCESS.getMessage());
+        map.put("url", "/sell/seller/order/list");
+        return new ModelAndView("common/success", map);
 
     }
 }

@@ -57,16 +57,15 @@ public class WechatController {
         return "redirect:" + returnUrl + "?openid=" + openId;
     }
 
-    @GetMapping("/grAuthorize")
+    @GetMapping("/qrAuthorize")
     public String grAuthorize(@RequestParam("returnUrl") String returnUrl) {
         String url = projectUrlConfig.getWechatOpenAuthorize() + "/sell/wechat/qrUserInfo";
         String redirectUrl = wxOpenService.buildQrConnectUrl(url, WxConsts.QRCONNECT_SCOPE_SNSAPI_LOGIN, URLEncoder.encode(returnUrl));
         return "redirect:" + redirectUrl;
     }
 
-    @GetMapping("/grUserInfo")
-    public String qrUserInfo(@RequestParam("code") String code,
-                             @RequestParam("state") String returnUrl) {
+    @GetMapping("/qrUserInfo")
+    public String qrUserInfo(@RequestParam("code") String code) {
         WxMpOAuth2AccessToken wxMpOAuth2AccessToken = new WxMpOAuth2AccessToken();
         try {
             wxMpOAuth2AccessToken = wxOpenService.oauth2getAccessToken(code);
@@ -76,6 +75,7 @@ public class WechatController {
         }
         log.info("wxMpOAuth2AccessToken={}",wxMpOAuth2AccessToken);
         String openId = wxMpOAuth2AccessToken.getOpenId();
+        String returnUrl = "http://modawen.natapp1.cc/sell/seller/login";
         return "redirect:" + returnUrl + "?openid=" + openId;
 
     }
