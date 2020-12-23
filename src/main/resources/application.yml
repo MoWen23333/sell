@@ -8,6 +8,9 @@ spring:
     show-sql: true
   jackson:
     default-property-inclusion: non_null
+  redis:
+    host: 172.31.170.235
+    port: 6379
 server:
   context-path: /sell
 #logging:
@@ -38,4 +41,4 @@ wechat:
 projectUrl:
   wechatMpAuthorize: http://modawen.natapp1.cc
   wechatOpenAuthorize: http://modawen.natapp1.cc
-  sell:
+  sell: http://modawen.natapp1.cc
