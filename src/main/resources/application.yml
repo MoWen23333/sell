@@ -3,13 +3,13 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: 123456
-    url: jdbc:mysql://172.31.170.235/sell?characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://172.31.179.37/sell?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
   jackson:
     default-property-inclusion: non_null
   redis:
-    host: 172.31.170.235
+    host: 172.31.179.37
     port: 6379
 server:
   context-path: /sell
