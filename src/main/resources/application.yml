@@ -44,3 +44,7 @@ projectUrl:
   wechatMpAuthorize: http://modawen.natapp1.cc
   wechatOpenAuthorize: http://modawen.natapp1.cc
   sell: http://modawen.natapp1.cc
+
+logging:
+  level:
+    com.imooc.dataobject.mapper: trace
