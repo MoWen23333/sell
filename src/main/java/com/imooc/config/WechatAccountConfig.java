@@ -4,6 +4,8 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 @Data
 @Component
 @ConfigurationProperties(prefix = "wechat")
@@ -22,4 +24,7 @@ public class WechatAccountConfig {
     private String KeyPath;
     // 微信支付异步通知
     private String notifyUrl;
+    // 微信模版id
+    private Map<String, String> templateId;
+
 }

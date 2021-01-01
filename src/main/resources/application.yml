@@ -3,13 +3,13 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: 123456
-    url: jdbc:mysql://172.31.179.37/sell?characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://192.168.31.231/sell?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
   jackson:
     default-property-inclusion: non_null
   redis:
-    host: 172.31.179.37
+    host: 192.168.31.231
     port: 6379
 server:
   context-path: /sell
@@ -37,6 +37,8 @@ wechat:
   # 发起支付不需要证书，退款需要
   KeyPath: /Users/mowen/Downloads/h5.p12
   notifyUrl: http://modawen.natapp1.cc/sell/pay/notify
+  templateId:
+    orderStatus: e-Cqq67QxD6YNI41iRiqawEYdFavW_7pc7LyEMb-yeQ
 
 projectUrl:
   wechatMpAuthorize: http://modawen.natapp1.cc

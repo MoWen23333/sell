@@ -1,7 +1,8 @@
 package com.imooc.service.impl;
 
+import com.imooc.config.WechatAccountConfig;
 import com.imooc.dto.OrderDTO;
-import com.imooc.service.PushMessage;
+import com.imooc.service.PushMessageService;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpService;
@@ -15,10 +16,13 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class PushMessageImpl implements PushMessage {
+public class PushMessageServiceImpl implements PushMessageService {
 
     @Autowired
     private WxMpService wxMpService;
+
+    @Autowired
+    private WechatAccountConfig accountConfig;
 
     @Override
     public void orderStatus(OrderDTO orderDTO) {
@@ -26,10 +30,10 @@ public class PushMessageImpl implements PushMessage {
 
         try {
             wxMpService.getTemplateMsgService().sendTemplateMsg(templateMessage);
-            templateMessage.setTemplateId("");
-            templateMessage.setToUser("");
+            templateMessage.setTemplateId(accountConfig.getTemplateId().get("orderStatus"));
+            templateMessage.setToUser(orderDTO.getBuyerOpenid());
             List<WxMpTemplateData> data = Arrays.asList(
-                    new WxMpTemplateData("first", "亲，请记得收获"),
+                    new WxMpTemplateData("first", "亲，请记得收货"),
                     new WxMpTemplateData("keyword1", "微信点餐"),
                     new WxMpTemplateData("keyword2", "12345678"),
                     new WxMpTemplateData("keyword3", orderDTO.getOrderId()),
