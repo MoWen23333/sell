@@ -9,6 +9,7 @@ import com.imooc.dto.OrderDTO;
 import com.imooc.enums.OrderStatusEnum;
 import com.imooc.enums.PayStatusEnum;
 import com.imooc.enums.ResultEnum;
+import com.imooc.exception.ResponseBankException;
 import com.imooc.exception.SellException;
 import com.imooc.repository.OrderDetailRepository;
 import com.imooc.repository.OrderMasterRepository;
@@ -64,6 +65,7 @@ public class OrderServiceImpl implements OrderService {
             ProductInfo productInfo = productService.findOne(orderDetail.getProductId());
             if (productInfo == null) {
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+                // throw new ResponseBankException();
             }
             // 判断数量是否足够？不需要，可以到扣库存做
 
