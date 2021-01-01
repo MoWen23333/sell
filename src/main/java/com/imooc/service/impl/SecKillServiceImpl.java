@@ -55,6 +55,10 @@ public class SecKillServiceImpl implements SecKillService {
     public void orderProductMockDiffUser(String productId)
     {
         //加锁
+        long time = System.currentTimeMillis() + TIMEOUT;
+        if (!redisLock.lock(productId, String.valueOf(time))) {
+            throw new SellException(101, "哎哟喂，人也太多了");
+        }
 
         //1.查询该商品库存，为0则活动结束。
         int stockNum = stock.get(productId);
@@ -74,6 +78,7 @@ public class SecKillServiceImpl implements SecKillService {
         }
 
         //解锁
+        redisLock.unlock(productId, String.valueOf(time));
 
     }
 }
