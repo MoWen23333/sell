@@ -48,3 +48,5 @@ projectUrl:
 logging:
   level:
     com.imooc.dataobject.mapper: trace
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
